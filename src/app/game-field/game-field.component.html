@@ -1,0 +1,29 @@
+<h1>Enemy Field - {{gameoperator.enemyActionCount}}</h1>
+Hand
+<div *ngFor="let card of gameoperator.enemyField.getHandCards()">{{card.name}} - {{card.description}} - {{card.type}}</div>
+<hr>
+Discard Pile
+<div *ngFor="let card of gameoperator.enemyField.getDiscardPile()">{{card.name}}</div>
+<hr>
+Defense Zone
+<div *ngFor="let card of gameoperator.enemyField.getDefenseCards()">{{card.name}} - {{card.description}} - {{card.type}}</div>
+<hr>
+
+Active Area
+<div *ngFor="let card of gameoperator.enemyField.getPlayArea()">{{card.name}} - {{card.description}} - {{card.type}}</div>
+
+<hr>
+Active Area
+<div *ngFor="let card of gameoperator.myField.getPlayArea(); let i = index" (click)="gameoperator.myField.showInfo(gameoperator.myField.getPlayArea()[i])">{{card.name}} - {{card.description}} - {{card.type}}</div>
+<hr>
+
+
+Defense Zone
+<div *ngFor="let card of gameoperator.myField.getDefenseCards(); let i = index" (click)="gameoperator.doAction('playdefense', i)">{{card.name}} - {{card.description}} - {{card.type}}</div>
+<hr>
+Discard Pile
+<div *ngFor="let card of gameoperator.myField.getDiscardPile()">{{card.name}} - {{card.description}} - {{card.type}}</div>
+<hr>
+Hand
+<div *ngFor="let card of gameoperator.myField.getHandCards(); let i = index" (click)="gameoperator.doAction('playhand', i)">{{card.name}} - {{card.description}} - {{card.type}}</div>
+<h1>My Field - {{gameoperator.myActionCount}}</h1>
